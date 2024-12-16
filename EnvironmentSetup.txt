@@ -1,0 +1,91 @@
+Python-Version：3.9.21	(Python≥3.8)
+
+# 注意Python和PyQt、torch版本的兼容性：https://pypi.tuna.tsinghua.edu.cn/simple/pyqt5-tools/
+Pyqt5-Version：
+	PyQt5：5.15.11
+	PyQt5-Designer： D:\Miniconda\envs\ultralytics\Lib\site-packages\qt5_applications\Qt\bin
+	PyQt5-Tools：5.15.2.1.3
+
+PyTorch:	2.2.0	(Pytorch≥1.8 && Python≥3.9)
+	wheel安装：pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+
+GPU/CUDA：3050Ti，12.0.134 (升级驱动) ；1050Ti，12.6.65
+	Install Location：https://developer.nvidia.com/cuda-downloads
+cuDNN(GPU加速库)：  https://developer.nvidia.com/cudnn-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local
+CUDA ToolKit():    https://developer.nvidia.cn/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local
+
+miniAnaconda:
+	清华源下载安装，并添加到Path中	Miniconda3-py3939_22.11.1-1-Windows-x86_64.exe
+	conda create -n ultralytics python=3.9
+	pypi配置资源国内镜像源：
+		单个：pip config set global.index-url <url>
+		多个：pip config set global.extra-index-url "<url1> <url2>..."
+	创建虚拟环境：  conda create -n python_3.7(环境名称) python=3.7(Python的版本号)
+	修改虚拟环境名：conda create --name  原有名称 --clone 修改后的名称， 后续需要删除老环境
+	环境触发：conda activate 想要激活的环境名
+	退出环境：conda deactivate
+	切换其他环境：activate 想要切换的环境的名称
+	获取系统现存的虚拟环境： conda list
+
+
+IDE-Version：Pycharm Community Edition 2023
+	使用miniconda对依赖包进行管理
+	配置conda环境：setting---->Python Interpreter---->Add Interpreter---->Conda Evironment---->Existing environment
+
+为每个单独项目配置对应的虚拟环境:
+	settings---->Python Interpreter---->Add---->System Interpreter
+	settings---->Python Interpreter---->New Virturl Environment
+
+ultralytics源码安装：YOLOv8-8.1.0
+	激活环境：把   :   \Minicoda\Scripts\  路径添加到系统变量PATH中---->conda init ---->conda activate ultralytics
+
+VScode编程环境搭建：
+	vscode：https://code.visualstudio.com/download
+	插件：
+		Python
+		jupyter
+		remote ssh
+		Chinese Language Pack
+	解释器：
+		默认配置文件：cmd.exe	终端---->新建终端---->cmd.exe
+		解释器：ultralytics  
+
+基于Python的YOLOv8开发环境搭建：
+1、chose suitable Python version：
+	suggestion-Version:	   3.9
+2、install Miniconda/anaconda：
+	download-Version:  Miniconda3-py3939_22.11.1-1-Windows-x86_64.exe------depend on Python version and your computer System
+	Chosen-Option：Add.....to the System PATH、Register.......
+3、create Conda environment:
+	open Anaconda Prompt, input oreder code:  conda create --name(new environment name) yolov8 python=3.9
+4、enable Conda environment：
+	conda activate yolov8
+5、install Pycharm：
+
+6、download YOLOv8 source code 
+
+数据集构建：
+1、LabelImg安装：
+	终端安装：
+	       pip install labelimg
+	启动命令：
+	       labelimg
+	关键设置：
+	       View---->autosave
+	       YOLO format
+
+2、make sense数据集标注：
+	https://www.makesense.ai/
+	下载yolov5进行辅助标注   pip install tensorflowjs==2.8.5   ------>导出训练后的模型
+
+3、roboflow公开数据集：
+
+
+模型训练：
+	数据集准备Dataset-Preparetion：
+	images：存放图片
+		train：训练集照片
+		val：验证集照片
+	labels：存放标签
+		train：训练集标签文件，与训练集图片名称一 一对应
+		val：验证集标签文件，与验证集图片名称一 一对应
